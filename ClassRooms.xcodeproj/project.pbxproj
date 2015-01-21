@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BB639400F585D04E91D2F60 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94549AEF1CF4C916F544BD1E /* libPods.a */; };
 		D469DA661A6FFE7B008ABA65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA651A6FFE7B008ABA65 /* main.m */; };
 		D469DA691A6FFE7B008ABA65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA681A6FFE7B008ABA65 /* AppDelegate.m */; };
 		D469DA6C1A6FFE7B008ABA65 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA6B1A6FFE7B008ABA65 /* MasterViewController.m */; };
@@ -15,6 +16,7 @@
 		D469DA741A6FFE7B008ABA65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D469DA731A6FFE7B008ABA65 /* Images.xcassets */; };
 		D469DA771A6FFE7B008ABA65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D469DA751A6FFE7B008ABA65 /* LaunchScreen.xib */; };
 		D469DA831A6FFE7B008ABA65 /* ClassRoomsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA821A6FFE7B008ABA65 /* ClassRoomsTests.m */; };
+		D469DA8E1A700796008ABA65 /* NetworkingInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA8D1A700796008ABA65 /* NetworkingInterface.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94549AEF1CF4C916F544BD1E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D469DA601A6FFE7B008ABA65 /* ClassRooms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassRooms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D469DA641A6FFE7B008ABA65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D469DA651A6FFE7B008ABA65 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +46,10 @@
 		D469DA7C1A6FFE7B008ABA65 /* ClassRoomsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassRoomsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D469DA811A6FFE7B008ABA65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D469DA821A6FFE7B008ABA65 /* ClassRoomsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassRoomsTests.m; sourceTree = "<group>"; };
+		D469DA8C1A700796008ABA65 /* NetworkingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingInterface.h; sourceTree = "<group>"; };
+		D469DA8D1A700796008ABA65 /* NetworkingInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingInterface.m; sourceTree = "<group>"; };
+		FA3FBD75F1B1F9174E157D7A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FBE178642FD790573ED27608 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BB639400F585D04E91D2F60 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,12 +71,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6201A5AC45AAA14D4B5CEB37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94549AEF1CF4C916F544BD1E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C2A2B52D2D0D9F6876C3203 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBE178642FD790573ED27608 /* Pods.debug.xcconfig */,
+				FA3FBD75F1B1F9174E157D7A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D469DA571A6FFE7B008ABA65 = {
 			isa = PBXGroup;
 			children = (
 				D469DA621A6FFE7B008ABA65 /* ClassRooms */,
 				D469DA7F1A6FFE7B008ABA65 /* ClassRoomsTests */,
 				D469DA611A6FFE7B008ABA65 /* Products */,
+				7C2A2B52D2D0D9F6876C3203 /* Pods */,
+				6201A5AC45AAA14D4B5CEB37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +121,8 @@
 				D469DA731A6FFE7B008ABA65 /* Images.xcassets */,
 				D469DA751A6FFE7B008ABA65 /* LaunchScreen.xib */,
 				D469DA631A6FFE7B008ABA65 /* Supporting Files */,
+				D469DA8C1A700796008ABA65 /* NetworkingInterface.h */,
+				D469DA8D1A700796008ABA65 /* NetworkingInterface.m */,
 			);
 			path = ClassRooms;
 			sourceTree = "<group>";
@@ -131,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D469DA861A6FFE7B008ABA65 /* Build configuration list for PBXNativeTarget "ClassRooms" */;
 			buildPhases = (
+				FB6CD6BBE12D11F399DD9703 /* Check Pods Manifest.lock */,
 				D469DA5C1A6FFE7B008ABA65 /* Sources */,
 				D469DA5D1A6FFE7B008ABA65 /* Frameworks */,
 				D469DA5E1A6FFE7B008ABA65 /* Resources */,
+				619E7EB16C8ECF9F7420E645 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,12 +250,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		619E7EB16C8ECF9F7420E645 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB6CD6BBE12D11F399DD9703 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D469DA5C1A6FFE7B008ABA65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D469DA691A6FFE7B008ABA65 /* AppDelegate.m in Sources */,
+				D469DA8E1A700796008ABA65 /* NetworkingInterface.m in Sources */,
 				D469DA6C1A6FFE7B008ABA65 /* MasterViewController.m in Sources */,
 				D469DA661A6FFE7B008ABA65 /* main.m in Sources */,
 				D469DA6F1A6FFE7B008ABA65 /* DetailViewController.m in Sources */,
@@ -341,6 +406,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -349,6 +415,7 @@
 		};
 		D469DA871A6FFE7B008ABA65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBE178642FD790573ED27608 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ClassRooms/Info.plist;
@@ -359,6 +426,7 @@
 		};
 		D469DA881A6FFE7B008ABA65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA3FBD75F1B1F9174E157D7A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ClassRooms/Info.plist;
@@ -420,6 +488,7 @@
 				D469DA881A6FFE7B008ABA65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D469DA891A6FFE7B008ABA65 /* Build configuration list for PBXNativeTarget "ClassRoomsTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +497,7 @@
 				D469DA8B1A6FFE7B008ABA65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

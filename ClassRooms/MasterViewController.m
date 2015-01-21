@@ -8,10 +8,17 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "ESTBeaconManager.h"
+#import "NetworkingInterface.h"
 
-@interface MasterViewController ()
+@interface MasterViewController () <ESTBeaconManagerDelegate>
 
-@property NSMutableArray *objects;
+@property (nonatomic, strong) ESTBeaconManager *beaconManager;
+@property (nonatomic, strong) ESTBeaconRegion *region;
+@property (nonatomic, strong) NSArray *beaconArray;
+
+@property (strong, nonatomic) NSMutableArray *classRooms;
+
 @end
 
 @implementation MasterViewController
@@ -24,11 +31,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    self.beaconManager = [[ESTBeaconManager alloc] init];
+    self.beaconManager.delegate = self;
+    
+    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID
+                                                      identifier:@"ClassRoomRegion"];
+    
+    [self.beaconManager startMonitoringForRegion:self.region];
+    [self.beaconManager startRangingBeaconsInRegion:self.region];
+    [self.beaconManager requestAlwaysAuthorization];
+    
+    self.region.notifyOnEntry = YES;
+    self.region.notifyOnExit = YES;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
@@ -37,21 +54,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender {
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
-    }
-    [self.objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        NSDate *object = self.classRooms[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
@@ -66,29 +74,78 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return self.classRooms.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ESTBeacon *beacon = [self.beaconArray objectAtIndex:indexPath.row];
+    
+    if (cell.textLabel.text.length == 0)
+    {
+        NetworkingInterface *networkInterface = [[NetworkingInterface alloc]init];
+        [networkInterface requestClassRoom:beacon completion:^(NSString *classroom) {
+            NSLog(@"Requested and complete %@", classroom);
+            cell.textLabel.text = classroom;
+        }];
+    }
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+#pragma mark - BeaconManager
+
+- (void)beaconManager:(ESTBeaconManager *)manager didEnterRegion:(ESTBeaconRegion *)region
+{
+    
+    NSLog(@"entering region");
+    
+    if (self.beaconArray.count > 0) {
+        
+        ESTBeacon* closestBeacon = [self.beaconArray objectAtIndex:0];
+        NSLog(@"closestprox %d", closestBeacon.proximity);
+        
+        UITableViewCell *cell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:0];
+        NSString *room = cell.textLabel.text;
+        NSLog(@"roooom %@", room);
+        UILocalNotification *notification = [[UILocalNotification alloc]init];
+        notification.alertBody = @"It workssss";
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
+    
+    UILocalNotification *notification = [[UILocalNotification alloc]init];
+    notification.alertBody = @"You entered the room";
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    
+    
+}
+
+-(void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region
+{
+    self.beaconArray = beacons;
+    [self.tableView reloadData];
+}
+
+
+
+- (void)beaconManager:(ESTBeaconManager *)manager monitoringDidFailForRegion:(ESTBeaconRegion *)region withError:(NSError *)error
+{
+    NSLog(@"Monitorfailed");
+}
+
+- (void)beaconManager:(ESTBeaconManager *)manager rangingBeaconsDidFailForRegion:(ESTBeaconRegion *)region withError:(NSError *)error
+{
+    NSLog(@"Rangefailed");
+}
+
+-(void)beaconManager:(ESTBeaconManager *)manager didDetermineState:(CLRegionState)state forRegion:(ESTBeaconRegion *)region
+{
+    NSLog(@"did determine state");
 }
 
 @end
