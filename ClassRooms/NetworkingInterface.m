@@ -21,7 +21,7 @@
 @implementation NetworkingInterface
 
 - (void)requestClassRoom:(ESTBeacon*)beacon completion:(void (^)(NSString *))completion {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://beacon-app.azurewebsites.net/beacons"]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://beacon-app-proxy.azurewebsites.net/beacons"]];
     
     NSString *major = [NSString stringWithFormat:@"%@", beacon.major];
     NSString *minor = [NSString stringWithFormat:@"%@", beacon.minor];

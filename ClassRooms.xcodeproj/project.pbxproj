@@ -17,6 +17,8 @@
 		D469DA771A6FFE7B008ABA65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D469DA751A6FFE7B008ABA65 /* LaunchScreen.xib */; };
 		D469DA831A6FFE7B008ABA65 /* ClassRoomsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA821A6FFE7B008ABA65 /* ClassRoomsTests.m */; };
 		D469DA8E1A700796008ABA65 /* NetworkingInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA8D1A700796008ABA65 /* NetworkingInterface.m */; };
+		D4A62E0E1A70474C005F2769 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A62E0D1A70474C005F2769 /* CoreLocation.framework */; };
+		D4A62E101A704753005F2769 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A62E0F1A704753005F2769 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		D469DA821A6FFE7B008ABA65 /* ClassRoomsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassRoomsTests.m; sourceTree = "<group>"; };
 		D469DA8C1A700796008ABA65 /* NetworkingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingInterface.h; sourceTree = "<group>"; };
 		D469DA8D1A700796008ABA65 /* NetworkingInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingInterface.m; sourceTree = "<group>"; };
+		D4A62E0D1A70474C005F2769 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D4A62E0F1A704753005F2769 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		FA3FBD75F1B1F9174E157D7A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FBE178642FD790573ED27608 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A62E101A704753005F2769 /* CoreBluetooth.framework in Frameworks */,
+				D4A62E0E1A70474C005F2769 /* CoreLocation.framework in Frameworks */,
 				3BB639400F585D04E91D2F60 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +80,8 @@
 		6201A5AC45AAA14D4B5CEB37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4A62E0F1A704753005F2769 /* CoreBluetooth.framework */,
+				D4A62E0D1A70474C005F2769 /* CoreLocation.framework */,
 				94549AEF1CF4C916F544BD1E /* libPods.a */,
 			);
 			name = Frameworks;
@@ -204,6 +212,7 @@
 				TargetAttributes = {
 					D469DA5F1A6FFE7B008ABA65 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = U8359LX6P5;
 					};
 					D469DA7B1A6FFE7B008ABA65 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -418,9 +427,12 @@
 			baseConfigurationReference = FBE178642FD790573ED27608 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ClassRooms/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -429,9 +441,12 @@
 			baseConfigurationReference = FA3FBD75F1B1F9174E157D7A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ClassRooms/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

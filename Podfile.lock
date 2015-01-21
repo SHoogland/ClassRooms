@@ -20,7 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - EstimoteSDK (2.3.2)
+  - EstimoteSDK (2.2.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -28,6 +28,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  EstimoteSDK: 1295d0374e2fec63e5fc520522d7500c7bb6fa72
+  EstimoteSDK: 3ae789ad99ce7a830d4679b8e4b663449f90ada3
 
 COCOAPODS: 0.35.0
