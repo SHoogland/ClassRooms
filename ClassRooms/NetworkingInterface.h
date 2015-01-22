@@ -11,8 +11,7 @@
 
 @interface NetworkingInterface : NSObject
 
-
-
-- (void)requestClassRoom:(ESTBeacon*)beacon completion:(void (^)(NSString *))completion;
+- (void)requestBeaconInfo:(void (^)(NSArray *))completion;
+- (void)requestTimeTable:(NSString*)roomName completion:(void (^)(NSArray *))timeTable;
 
 @end

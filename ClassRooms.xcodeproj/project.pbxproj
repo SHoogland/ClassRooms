@@ -19,6 +19,8 @@
 		D469DA8E1A700796008ABA65 /* NetworkingInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA8D1A700796008ABA65 /* NetworkingInterface.m */; };
 		D4A62E0E1A70474C005F2769 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A62E0D1A70474C005F2769 /* CoreLocation.framework */; };
 		D4A62E101A704753005F2769 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A62E0F1A704753005F2769 /* CoreBluetooth.framework */; };
+		D4A62E131A71152C005F2769 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A62E121A71152C005F2769 /* ScheduleTableViewController.m */; };
+		D4A62E161A7115FB005F2769 /* LinuxTimeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A62E151A7115FB005F2769 /* LinuxTimeConverter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,10 @@
 		D469DA8D1A700796008ABA65 /* NetworkingInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingInterface.m; sourceTree = "<group>"; };
 		D4A62E0D1A70474C005F2769 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D4A62E0F1A704753005F2769 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		D4A62E111A71152C005F2769 /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
+		D4A62E121A71152C005F2769 /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
+		D4A62E141A7115FB005F2769 /* LinuxTimeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinuxTimeConverter.h; sourceTree = "<group>"; };
+		D4A62E151A7115FB005F2769 /* LinuxTimeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinuxTimeConverter.m; sourceTree = "<group>"; };
 		FA3FBD75F1B1F9174E157D7A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FBE178642FD790573ED27608 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,12 +131,16 @@
 				D469DA6B1A6FFE7B008ABA65 /* MasterViewController.m */,
 				D469DA6D1A6FFE7B008ABA65 /* DetailViewController.h */,
 				D469DA6E1A6FFE7B008ABA65 /* DetailViewController.m */,
+				D4A62E111A71152C005F2769 /* ScheduleTableViewController.h */,
+				D4A62E121A71152C005F2769 /* ScheduleTableViewController.m */,
 				D469DA701A6FFE7B008ABA65 /* Main.storyboard */,
+				D469DA8C1A700796008ABA65 /* NetworkingInterface.h */,
+				D469DA8D1A700796008ABA65 /* NetworkingInterface.m */,
+				D4A62E141A7115FB005F2769 /* LinuxTimeConverter.h */,
+				D4A62E151A7115FB005F2769 /* LinuxTimeConverter.m */,
 				D469DA731A6FFE7B008ABA65 /* Images.xcassets */,
 				D469DA751A6FFE7B008ABA65 /* LaunchScreen.xib */,
 				D469DA631A6FFE7B008ABA65 /* Supporting Files */,
-				D469DA8C1A700796008ABA65 /* NetworkingInterface.h */,
-				D469DA8D1A700796008ABA65 /* NetworkingInterface.m */,
 			);
 			path = ClassRooms;
 			sourceTree = "<group>";
@@ -299,8 +309,10 @@
 			files = (
 				D469DA691A6FFE7B008ABA65 /* AppDelegate.m in Sources */,
 				D469DA8E1A700796008ABA65 /* NetworkingInterface.m in Sources */,
+				D4A62E131A71152C005F2769 /* ScheduleTableViewController.m in Sources */,
 				D469DA6C1A6FFE7B008ABA65 /* MasterViewController.m in Sources */,
 				D469DA661A6FFE7B008ABA65 /* main.m in Sources */,
+				D4A62E161A7115FB005F2769 /* LinuxTimeConverter.m in Sources */,
 				D469DA6F1A6FFE7B008ABA65 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,51 +12,57 @@
 
 @interface NetworkingInterface()
 
-
-//@property (nonatomic, copy)     void (^completion)(NSString *);
-@property (strong, nonatomic) NSMutableArray *responseClassRooms;
+@property (nonatomic, copy)     void (^completion)(NSString *);
+@property (nonatomic, copy)     void (^timeTable)(NSArray *);
 
 @end
 
 @implementation NetworkingInterface
 
-- (void)requestClassRoom:(ESTBeacon*)beacon completion:(void (^)(NSString *))completion {
+// ophalen van alle gegevens betreffende de beacons (koppeling van beacons aan lokalen)
+- (void)requestBeaconInfo:(void (^)(NSArray *))completion {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://beacon-app-proxy.azurewebsites.net/beacons"]];
-    
-    NSString *major = [NSString stringWithFormat:@"%@", beacon.major];
-    NSString *minor = [NSString stringWithFormat:@"%@", beacon.minor];
-    
-    self.responseClassRooms = [[NSMutableArray alloc] init];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        completion(responseObject);
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Geen Internetverbinding" message:@"Controleer of je bent verbonden met het internet" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
+        [alert setTag:2];
+        [alert show];
+    }];
+    
+    [operation start];
+}
+
+// ophalen van het rooster voor een betreffend lokaal via onze eigen webserver
+// de webserver doet 2 calls naar de API van timetables en returnt een custom JSON voor het betreffende lokaal.
+- (void)requestTimeTable:(NSString*)roomName completion:(void (^)(NSArray *))timeTable {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://beacon-app-proxy.azurewebsites.net/classroomSchedule/%@", roomName]];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [self.responseClassRooms addObjectsFromArray:responseObject];
-        NSLog(@"%@", responseObject);
-        NSLog(@"requested beacons");
-        for (int i = 0; i<[self.responseClassRooms count]; i++) {
-            NSDictionary *Dictionary= [self.responseClassRooms objectAtIndex:i];
-            NSString *dicMajor = [NSString stringWithFormat:@"%@", [Dictionary objectForKey:@"Major"]];
-            NSString *dicMinor = [NSString stringWithFormat:@"%@", [Dictionary objectForKey:@"Minor"]];
-            
-            if ([dicMajor isEqualToString:major] && [dicMinor isEqualToString:minor])
-            {
-                completion([NSString stringWithFormat:@"%@", [Dictionary objectForKey:@"ClassRoom"]]);
-            }
-        }
+        timeTable([responseObject objectForKey:@"activities"]);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"ERROR");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong. The messages couldn't be loaded" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Retry",nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Geen Internetverbinding" message:@"Controleer of je bent verbonden met het internet" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
+        [alert setTag:1];
         [alert show];
     }];
-
+    
     [operation start];
+    
 }
 
 @end

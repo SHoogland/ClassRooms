@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ESTBeacon.h"
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) NSString *roomName;
+@property (strong, nonatomic) ESTBeacon *detailBeacon;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+- (void)setDetailBeacon:(ESTBeacon *)detailBeacon classRoom:(NSString *)roomName;
 
 @end
 

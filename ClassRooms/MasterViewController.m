@@ -18,6 +18,10 @@
 @property (nonatomic, strong) ESTBeaconManager *beaconManager;
 @property (nonatomic, strong) ESTBeaconRegion *region;
 @property (nonatomic, strong) NSArray *beaconArray;
+@property (nonatomic, assign) BOOL beaconInfoRequested;
+
+@property (strong, nonatomic) NSArray *beaconInfo;
+@property (copy, nonatomic) NSString *roomName;
 
 @end
 
@@ -31,25 +35,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"ViewDidLoad");
+    
+    [self setBeaconInfoRequested:NO];
+    
+    // request van de alle beaconInformatie
+    NetworkingInterface *networkInterface = [[NetworkingInterface alloc]init];
+    [networkInterface requestBeaconInfo:^(NSArray * info) {
+        self.beaconInfo = info;
+        [self setBeaconInfoRequested:YES];
+    }];
     
     self.beaconManager = [[ESTBeaconManager alloc] init];
     self.beaconManager.delegate = self;
     
-    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"] major:29417 minor:46117 identifier:@"ClassRoomRegion" secured:NO];
+    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID
+                                                      identifier:@"iBeaconRegion"];
     
-    self.region.notifyOnEntry = YES;
-    self.region.notifyOnExit = YES;
-
     [self.beaconManager startMonitoringForRegion:self.region];
     [self.beaconManager startRangingBeaconsInRegion:self.region];
+    [self.beaconManager requestAlwaysAuthorization];
+    
+    self.region.notifyOnEntry = YES;
     
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Segues
@@ -58,8 +66,24 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ESTBeacon *object = self.beaconArray[indexPath.row];
+        NSString *roomName = @"";
+        // iterate through the beacons and find the linked classroom
+        for (int i = 0;i<[self.beaconInfo count];i++)
+        {
+            NSDictionary *Dictionary= [self.beaconInfo objectAtIndex:i];
+            
+            NSString *major = [NSString stringWithFormat:@"%@", object.major];
+            NSString *minor = [NSString stringWithFormat:@"%@", object.minor];
+            NSString *dicMajor = [NSString stringWithFormat:@"%@", [Dictionary objectForKey:@"Major"]];
+            NSString *dicMinor = [NSString stringWithFormat:@"%@", [Dictionary objectForKey:@"Minor"]];
+            
+            if ([dicMajor isEqualToString:major] && [dicMinor isEqualToString:minor])
+            {
+                roomName = [Dictionary objectForKey:@"ClassRoom"];
+            }
+        }
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
+        [controller setDetailBeacon:object classRoom:roomName];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
@@ -78,13 +102,31 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     ESTBeacon *beacon = [self.beaconArray objectAtIndex:indexPath.row];
-    cell.hidden = NO;
-    cell.textLabel.text = [NSString stringWithFormat:@"Major: %@, Minor: %@", beacon.major, beacon.minor];
-    NetworkingInterface *networkInterface = [[NetworkingInterface alloc]init];
-    [networkInterface requestClassRoom:beacon completion:^(NSString *classroom) {
-        NSLog(@"Requested and complete %@", classroom);
-        cell.textLabel.text = classroom;
-    }];
+    
+    if (cell.textLabel.text.length == 0)
+        cell.hidden = YES;
+    
+    if (self.beaconInfoRequested == YES)
+    {
+        
+        // iterate through the beacons and find the linked classroom
+        for (int i = 0;i<[self.beaconInfo count];i++)
+        {
+            NSDictionary *Dictionary= [self.beaconInfo objectAtIndex:i];
+            
+            NSString *major = [NSString stringWithFormat:@"%@", beacon.major];
+            NSString *minor = [NSString stringWithFormat:@"%@", beacon.minor];
+            NSString *dicMajor = [NSString stringWithFormat:@"%@", [Dictionary objectForKey:@"Major"]];
+            NSString *dicMinor = [NSString stringWithFormat:@"%@", [Dictionary objectForKey:@"Minor"]];
+            
+            if ([dicMajor isEqualToString:major] && [dicMinor isEqualToString:minor])
+            {
+                cell.textLabel.text = [NSString stringWithFormat:@"%@", [Dictionary objectForKey:@"ClassRoom"]];
+                cell.hidden = NO;
+            }
+        }
+    }
+
 
     return cell;
 }
@@ -110,36 +152,22 @@
         NSString *room = cell.textLabel.text;
         NSLog(@"roooom %@", room);
         UILocalNotification *notification = [[UILocalNotification alloc]init];
-        notification.alertBody = @"It workssss";
+        notification.alertBody = [NSString stringWithFormat:@"You entered class room %@", room];
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
     
     UILocalNotification *notification = [[UILocalNotification alloc]init];
-    notification.alertBody = @"You entered the room";
+    notification.alertBody = @"You entered a class room";
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     
     
 }
 
--(void)beaconManager:(ESTBeaconManager *)manager didStartMonitoringForRegion:(ESTBeaconRegion *)region{
-    NSLog(@"WAAAAAAAHAAHHAHA %@", region);
-}
-
--(void)beaconManager:(ESTBeaconManager *)manager didDiscoverBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region{
-    NSLog(@"diddiscoverBeacons");
-    self.beaconArray = beacons;
-    [self.tableView reloadData];
-}
-
 -(void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region
 {
-    NSLog(@"didRangeBeacons");
     self.beaconArray = beacons;
     [self.tableView reloadData];
-    NSLog(@"%@", self.beaconArray);
 }
-
-
 
 - (void)beaconManager:(ESTBeaconManager *)manager monitoringDidFailForRegion:(ESTBeaconRegion *)region withError:(NSError *)error
 {
@@ -149,11 +177,6 @@
 - (void)beaconManager:(ESTBeaconManager *)manager rangingBeaconsDidFailForRegion:(ESTBeaconRegion *)region withError:(NSError *)error
 {
     NSLog(@"Rangefailed");
-}
-
--(void)beaconManager:(ESTBeaconManager *)manager didDetermineState:(CLRegionState)state forRegion:(ESTBeaconRegion *)region
-{
-    NSLog(@"did determine state");
 }
 
 @end
