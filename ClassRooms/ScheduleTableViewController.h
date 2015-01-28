@@ -13,7 +13,8 @@
 
 @property (nonatomic, strong) ESTBeacon *beacon;
 @property (copy, nonatomic) NSString *roomName;
+@property (copy, nonatomic) NSString *image;
 
-- (void)setDetailBeacon:(ESTBeacon *)detailBeacon classRoom:(NSString *)roomName;
+- (void)setDetailBeacon:(ESTBeacon *)detailBeacon classRoom:(NSString *)roomName imageString:(NSString *)image;
 
 @end

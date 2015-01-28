@@ -11,12 +11,13 @@
 		D469DA661A6FFE7B008ABA65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA651A6FFE7B008ABA65 /* main.m */; };
 		D469DA691A6FFE7B008ABA65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA681A6FFE7B008ABA65 /* AppDelegate.m */; };
 		D469DA6C1A6FFE7B008ABA65 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA6B1A6FFE7B008ABA65 /* MasterViewController.m */; };
-		D469DA6F1A6FFE7B008ABA65 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA6E1A6FFE7B008ABA65 /* DetailViewController.m */; };
 		D469DA721A6FFE7B008ABA65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D469DA701A6FFE7B008ABA65 /* Main.storyboard */; };
 		D469DA741A6FFE7B008ABA65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D469DA731A6FFE7B008ABA65 /* Images.xcassets */; };
 		D469DA771A6FFE7B008ABA65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D469DA751A6FFE7B008ABA65 /* LaunchScreen.xib */; };
 		D469DA831A6FFE7B008ABA65 /* ClassRoomsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA821A6FFE7B008ABA65 /* ClassRoomsTests.m */; };
 		D469DA8E1A700796008ABA65 /* NetworkingInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA8D1A700796008ABA65 /* NetworkingInterface.m */; };
+		D49CE3911A77EA5A00892593 /* MasterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D49CE3901A77EA5A00892593 /* MasterViewCell.m */; };
+		D49CE3941A77EB6C00892593 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D49CE3931A77EB6C00892593 /* ScheduleTableViewCell.m */; };
 		D4A62E0E1A70474C005F2769 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A62E0D1A70474C005F2769 /* CoreLocation.framework */; };
 		D4A62E101A704753005F2769 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A62E0F1A704753005F2769 /* CoreBluetooth.framework */; };
 		D4A62E131A71152C005F2769 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A62E121A71152C005F2769 /* ScheduleTableViewController.m */; };
@@ -42,8 +43,6 @@
 		D469DA681A6FFE7B008ABA65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D469DA6A1A6FFE7B008ABA65 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		D469DA6B1A6FFE7B008ABA65 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		D469DA6D1A6FFE7B008ABA65 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		D469DA6E1A6FFE7B008ABA65 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		D469DA711A6FFE7B008ABA65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D469DA731A6FFE7B008ABA65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D469DA761A6FFE7B008ABA65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -52,6 +51,10 @@
 		D469DA821A6FFE7B008ABA65 /* ClassRoomsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassRoomsTests.m; sourceTree = "<group>"; };
 		D469DA8C1A700796008ABA65 /* NetworkingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingInterface.h; sourceTree = "<group>"; };
 		D469DA8D1A700796008ABA65 /* NetworkingInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingInterface.m; sourceTree = "<group>"; };
+		D49CE38F1A77EA5A00892593 /* MasterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewCell.h; sourceTree = "<group>"; };
+		D49CE3901A77EA5A00892593 /* MasterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewCell.m; sourceTree = "<group>"; };
+		D49CE3921A77EB6C00892593 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
+		D49CE3931A77EB6C00892593 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
 		D4A62E0D1A70474C005F2769 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D4A62E0F1A704753005F2769 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		D4A62E111A71152C005F2769 /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
@@ -129,10 +132,12 @@
 				D469DA681A6FFE7B008ABA65 /* AppDelegate.m */,
 				D469DA6A1A6FFE7B008ABA65 /* MasterViewController.h */,
 				D469DA6B1A6FFE7B008ABA65 /* MasterViewController.m */,
-				D469DA6D1A6FFE7B008ABA65 /* DetailViewController.h */,
-				D469DA6E1A6FFE7B008ABA65 /* DetailViewController.m */,
+				D49CE38F1A77EA5A00892593 /* MasterViewCell.h */,
+				D49CE3901A77EA5A00892593 /* MasterViewCell.m */,
 				D4A62E111A71152C005F2769 /* ScheduleTableViewController.h */,
 				D4A62E121A71152C005F2769 /* ScheduleTableViewController.m */,
+				D49CE3921A77EB6C00892593 /* ScheduleTableViewCell.h */,
+				D49CE3931A77EB6C00892593 /* ScheduleTableViewCell.m */,
 				D469DA701A6FFE7B008ABA65 /* Main.storyboard */,
 				D469DA8C1A700796008ABA65 /* NetworkingInterface.h */,
 				D469DA8D1A700796008ABA65 /* NetworkingInterface.m */,
@@ -308,12 +313,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D469DA691A6FFE7B008ABA65 /* AppDelegate.m in Sources */,
+				D49CE3941A77EB6C00892593 /* ScheduleTableViewCell.m in Sources */,
 				D469DA8E1A700796008ABA65 /* NetworkingInterface.m in Sources */,
+				D49CE3911A77EA5A00892593 /* MasterViewCell.m in Sources */,
 				D4A62E131A71152C005F2769 /* ScheduleTableViewController.m in Sources */,
 				D469DA6C1A6FFE7B008ABA65 /* MasterViewController.m in Sources */,
 				D469DA661A6FFE7B008ABA65 /* main.m in Sources */,
 				D4A62E161A7115FB005F2769 /* LinuxTimeConverter.m in Sources */,
-				D469DA6F1A6FFE7B008ABA65 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
