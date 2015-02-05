@@ -23,6 +23,7 @@
 		D4A62E101A704753005F2769 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A62E0F1A704753005F2769 /* CoreBluetooth.framework */; };
 		D4A62E131A71152C005F2769 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A62E121A71152C005F2769 /* ScheduleTableViewController.m */; };
 		D4A62E161A7115FB005F2769 /* LinuxTimeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A62E151A7115FB005F2769 /* LinuxTimeConverter.m */; };
+		D4FE09931A839E87005B6D61 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE09921A839E87005B6D61 /* InfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		D4A62E121A71152C005F2769 /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
 		D4A62E141A7115FB005F2769 /* LinuxTimeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinuxTimeConverter.h; sourceTree = "<group>"; };
 		D4A62E151A7115FB005F2769 /* LinuxTimeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinuxTimeConverter.m; sourceTree = "<group>"; };
+		D4FE09911A839E87005B6D61 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		D4FE09921A839E87005B6D61 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		FA3FBD75F1B1F9174E157D7A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FBE178642FD790573ED27608 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +148,8 @@
 				D4A62E121A71152C005F2769 /* ScheduleTableViewController.m */,
 				D49CE3921A77EB6C00892593 /* ScheduleTableViewCell.h */,
 				D49CE3931A77EB6C00892593 /* ScheduleTableViewCell.m */,
+				D4FE09911A839E87005B6D61 /* InfoViewController.h */,
+				D4FE09921A839E87005B6D61 /* InfoViewController.m */,
 				D469DA701A6FFE7B008ABA65 /* Main.storyboard */,
 				D469DA8C1A700796008ABA65 /* NetworkingInterface.h */,
 				D469DA8D1A700796008ABA65 /* NetworkingInterface.m */,
@@ -324,6 +329,7 @@
 			files = (
 				D469DA691A6FFE7B008ABA65 /* AppDelegate.m in Sources */,
 				D49CE3941A77EB6C00892593 /* ScheduleTableViewCell.m in Sources */,
+				D4FE09931A839E87005B6D61 /* InfoViewController.m in Sources */,
 				D469DA8E1A700796008ABA65 /* NetworkingInterface.m in Sources */,
 				D49CE3911A77EA5A00892593 /* MasterViewCell.m in Sources */,
 				D4A62E131A71152C005F2769 /* ScheduleTableViewController.m in Sources */,

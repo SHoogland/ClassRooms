@@ -14,3 +14,4 @@
 "Distance: ~%.2f meter" = "Distance: ~%.2f meter";
 "You entered class room %@" = "You entered class room %@";
 "You entered a class room" = "You entered a class room";
+"Info text" = "ClassRooms, this app provides the user with a classroom schedule based on its location. The app utilizes bluetooth and so called iBeacons to find out the users location and provides him or her with information about the closest class room.";

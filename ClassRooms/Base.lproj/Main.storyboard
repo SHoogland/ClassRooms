@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -115,22 +117,92 @@
             </objects>
             <point key="canvasLocation" x="447.75" y="-630"/>
         </scene>
-        <!--View Controller-->
+        <!--Info View Controller-->
         <scene sceneID="XYu-5S-BSn">
             <objects>
-                <viewController id="pgP-mM-GBp" sceneMemberID="viewController">
+                <viewController id="pgP-mM-GBp" customClass="InfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dpt-Js-pW6"/>
                         <viewControllerLayoutGuide type="bottom" id="XFS-vD-Rpo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GnX-u3-9DG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Classrooms" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xL-ZJ-Zs7">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ea8-lZ-jVg">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="5005" maxX="0.0" maxY="0.0"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Class rooms ">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> Deze app geeft een rooster van een lokaal in Hogeschool Inholland weer. Dit gebeurt door te kijken waar het device zich bevindt en vervolgens het resultaat te vergelijken met een lijst van lokalen. Vervolgens wordt er een foto en het rooster weergegeven die weergeeft welke lessen er deze week vanaf vandaag zijn, hoelaat deze zijn en welke klassen er aanwezig zullen zijn.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                </variation>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecS-cV-Iso">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="2xL-ZJ-Zs7" secondAttribute="trailing" constant="10" id="g1G-vu-brD"/>
+                            <constraint firstItem="XFS-vD-Rpo" firstAttribute="top" secondItem="2xL-ZJ-Zs7" secondAttribute="bottom" constant="10" id="hZp-Uy-ebq"/>
+                            <constraint firstItem="2xL-ZJ-Zs7" firstAttribute="leading" secondItem="GnX-u3-9DG" secondAttribute="leadingMargin" constant="10" id="riK-MM-Otz"/>
+                            <constraint firstItem="2xL-ZJ-Zs7" firstAttribute="top" secondItem="Dpt-Js-pW6" secondAttribute="bottom" constant="10" id="utg-2w-5qZ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="2xL-ZJ-Zs7"/>
+                                <exclude reference="Ea8-lZ-jVg"/>
+                                <exclude reference="ecS-cV-Iso"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="g1G-vu-brD"/>
+                                <exclude reference="riK-MM-Otz"/>
+                                <exclude reference="utg-2w-5qZ"/>
+                                <exclude reference="hZp-Uy-ebq"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <exclude reference="2xL-ZJ-Zs7"/>
+                                <exclude reference="Ea8-lZ-jVg"/>
+                                <exclude reference="ecS-cV-Iso"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="g1G-vu-brD"/>
+                                <include reference="riK-MM-Otz"/>
+                                <include reference="utg-2w-5qZ"/>
+                                <include reference="hZp-Uy-ebq"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zVZ-e3-9pk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953.25" y="-630"/>
+            <point key="canvasLocation" x="954" y="-630"/>
         </scene>
         <!--Schedule Table View Controller-->
         <scene sceneID="50B-X6-wia">

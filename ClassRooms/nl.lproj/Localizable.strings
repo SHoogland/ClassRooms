@@ -14,3 +14,4 @@
 "Distance: ~%.2f meter" = "Afstand: ~%.2f meter";
 "You entered class room %@" = "Je betreedt lokaal %@";
 "You entered a class room" = "Je hebt een klaslokaal betreden";
+"Info text" = "ClassRooms, deze app geeft rooster informatie op basis van je locatie. De app gebruikt bluetooth en zogeheten iBeacons op Hogeschool Inholland om te achterhalen waar je bent en welk lokaal weergegeven moet worden.";
