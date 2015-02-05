@@ -18,6 +18,7 @@
 		D469DA8E1A700796008ABA65 /* NetworkingInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D469DA8D1A700796008ABA65 /* NetworkingInterface.m */; };
 		D49CE3911A77EA5A00892593 /* MasterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D49CE3901A77EA5A00892593 /* MasterViewCell.m */; };
 		D49CE3941A77EB6C00892593 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D49CE3931A77EB6C00892593 /* ScheduleTableViewCell.m */; };
+		D49DEE571A837B3100717EFF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D49DEE591A837B3100717EFF /* Localizable.strings */; };
 		D4A62E0E1A70474C005F2769 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A62E0D1A70474C005F2769 /* CoreLocation.framework */; };
 		D4A62E101A704753005F2769 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A62E0F1A704753005F2769 /* CoreBluetooth.framework */; };
 		D4A62E131A71152C005F2769 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A62E121A71152C005F2769 /* ScheduleTableViewController.m */; };
@@ -55,6 +56,12 @@
 		D49CE3901A77EA5A00892593 /* MasterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewCell.m; sourceTree = "<group>"; };
 		D49CE3921A77EB6C00892593 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
 		D49CE3931A77EB6C00892593 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
+		D49DEE581A837B3100717EFF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D49DEE5A1A837D8900717EFF /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D49DEE5B1A837D8900717EFF /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		D49DEE5C1A837D8900717EFF /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D49DEE5E1A8381FF00717EFF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D49DEE601A83821A00717EFF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D4A62E0D1A70474C005F2769 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D4A62E0F1A704753005F2769 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		D4A62E111A71152C005F2769 /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
@@ -146,6 +153,7 @@
 				D469DA731A6FFE7B008ABA65 /* Images.xcassets */,
 				D469DA751A6FFE7B008ABA65 /* LaunchScreen.xib */,
 				D469DA631A6FFE7B008ABA65 /* Supporting Files */,
+				D49DEE591A837B3100717EFF /* Localizable.strings */,
 			);
 			path = ClassRooms;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = D469DA571A6FFE7B008ABA65;
 			productRefGroup = D469DA611A6FFE7B008ABA65 /* Products */;
@@ -260,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D469DA721A6FFE7B008ABA65 /* Main.storyboard in Resources */,
+				D49DEE571A837B3100717EFF /* Localizable.strings in Resources */,
 				D469DA771A6FFE7B008ABA65 /* LaunchScreen.xib in Resources */,
 				D469DA741A6FFE7B008ABA65 /* Images.xcassets in Resources */,
 			);
@@ -346,6 +356,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D469DA711A6FFE7B008ABA65 /* Base */,
+				D49DEE5B1A837D8900717EFF /* nl */,
+				D49DEE601A83821A00717EFF /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -354,8 +366,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				D469DA761A6FFE7B008ABA65 /* Base */,
+				D49DEE5C1A837D8900717EFF /* nl */,
+				D49DEE5E1A8381FF00717EFF /* en */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		D49DEE591A837B3100717EFF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D49DEE581A837B3100717EFF /* en */,
+				D49DEE5A1A837D8900717EFF /* nl */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

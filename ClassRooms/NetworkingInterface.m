@@ -32,7 +32,7 @@
         completion(responseObject);
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Geen Internetverbinding" message:@"Controleer of je bent verbonden met het internet" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No internet connection", nil) message:NSLocalizedString(@"Please check if you're connected",nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
         [alert setTag:2];
         [alert show];
     }];
@@ -56,7 +56,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"ERROR");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Geen Internetverbinding" message:@"Controleer of je bent verbonden met het internet" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No internet connection", nil) message:NSLocalizedString(@"Please check if you're connected",nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
         [alert setTag:1];
         [alert show];
     }];

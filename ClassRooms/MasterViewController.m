@@ -39,7 +39,7 @@
 
     [self setBeaconInfoRequested:NO];
     
-    // request van de alle beaconInformatie
+    // request  alle beaconInformatie van de api
     NetworkingInterface *networkInterface = [[NetworkingInterface alloc]init];
     [networkInterface requestBeaconInfo:^(NSArray * info) {
         self.beaconInfo = info;
@@ -64,6 +64,7 @@
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // set de target controller (ScheduleTableViewController) with the necesary information
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ESTBeacon *object = self.beaconArray[indexPath.row];
@@ -99,7 +100,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [NSString stringWithFormat:@"Klaslokalen in de buurt: %lu", (unsigned long)[self.beaconArray count]];
+    return [NSString stringWithFormat:NSLocalizedString(@"Local classrooms: %lu", nil), (unsigned long)[self.beaconArray count]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -134,7 +135,7 @@
             }
         }
     }
-    cell.beaconTextDetail.text = [NSString stringWithFormat:@"Afstand: ~%.2f meter", [beacon.distance floatValue]];
+    cell.beaconTextDetail.text = [NSString stringWithFormat:NSLocalizedString(@"Distance: ~%.2f meter", nil), [beacon.distance floatValue]];
     cell.beaconImage.image = [UIImage imageNamed:@"beacon"];
 
     return cell;
@@ -159,12 +160,12 @@
         NSString *room = cell.textLabel.text;
         NSLog(@"roooom %@", room);
         UILocalNotification *notification = [[UILocalNotification alloc]init];
-        notification.alertBody = [NSString stringWithFormat:@"You entered class room %@", room];
+        notification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"You entered class room %@", nil), room];
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
     
     UILocalNotification *notification = [[UILocalNotification alloc]init];
-    notification.alertBody = @"You entered a class room";
+    notification.alertBody = NSLocalizedString(@"You entered a class room", nil);
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 

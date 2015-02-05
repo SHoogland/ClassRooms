@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  ClassRooms
+
+  Created by Stephan Hoogland on 05/02/15.
+  Copyright (c) 2015 SHoogland. All rights reserved.
+*/
+"Local classrooms: %lu" = "Local classrooms: %lu";
+"Classroom info" = "Classroom info";
+"Downloading schedule" = "Downloading schedule";
+"Choose a classroom" = "Choose a classroom";
+"No internet connection" = "No internet connection";
+"Please check if you're connected" = "Please check if you're connected";
+"Distance: ~%.2f meter" = "Distance: ~%.2f meter";
+"You entered class room %@" = "You entered class room %@";
+"You entered a class room" = "You entered a class room";

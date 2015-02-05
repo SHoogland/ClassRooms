@@ -103,11 +103,34 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lokalen" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Classrooms" id="Zdf-7t-Un8">
+                        <barButtonItem key="rightBarButtonItem" title="Info" id="jx6-8y-dqy">
+                            <connections>
+                                <segue destination="pgP-mM-GBp" kind="show" id="A8M-FT-Zcl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="447.75" y="-630"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XYu-5S-BSn">
+            <objects>
+                <viewController id="pgP-mM-GBp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dpt-Js-pW6"/>
+                        <viewControllerLayoutGuide type="bottom" id="XFS-vD-Rpo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GnX-u3-9DG">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zVZ-e3-9pk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="953.25" y="-630"/>
         </scene>
         <!--Schedule Table View Controller-->
         <scene sceneID="50B-X6-wia">
@@ -129,7 +152,7 @@
                                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                                <rect key="frame" x="14" y="21" width="578" height="21"/>
+                                                <rect key="frame" x="14" y="26" width="578" height="21"/>
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4q-Ki-iml">
@@ -147,7 +170,7 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                                <rect key="frame" x="14" y="41" width="578" height="21"/>
+                                                <rect key="frame" x="14" y="45" width="578" height="21"/>
                                             </variation>
                                         </label>
                                     </subviews>

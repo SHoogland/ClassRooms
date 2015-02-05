@@ -42,18 +42,18 @@
     [super viewDidLoad];
     
     NSLog(@"Viewloaded");
-    self.title = @"Lokaal info";
+    self.title = NSLocalizedString(@"Classroom info", nil);
     
-    self.loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.bounds.size.width / 4,
-                                                                  0,
-                                                                  self.tableView.bounds.size.width,
+    self.loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(50,
+                                                                  self.tableView.bounds.size.height / 2 - 10,
+                                                                  200,
                                                                   20)];
-    self.loadingLabel.text = @"Rooster dowloaden";
+    self.loadingLabel.text = NSLocalizedString(@"Downloading schedule", nil);
     self.loadingLabel.textAlignment = NSTextAlignmentCenter;
-    self.loadingLabel.center = self.tableView.center;
+//    self.loadingLabel.center = self.tableView.center;
     
     self.loadingSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.loadingSpinner.frame = CGRectMake(self.tableView.bounds.size.width / 4 + 70,
+    self.loadingSpinner.frame = CGRectMake(50 + 200,
                                            self.tableView.bounds.size.height / 2 - 10,
                                            20,
                                            20);
@@ -174,7 +174,7 @@
             roomName.text = self.roomName;
         }
         else{
-            roomName.text = @"kies een lokaal";
+            roomName.text = NSLocalizedString(@"Choose a classroom", nil);
         }
         
         [imageView addSubview:roomName];

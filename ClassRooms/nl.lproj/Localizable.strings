@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  ClassRooms
+
+  Created by Stephan Hoogland on 05/02/15.
+  Copyright (c) 2015 SHoogland. All rights reserved.
+*/
+"Local classrooms: %lu" = "Klaslokalen in de buurt: %lu";
+"Classroom info" = "Lokaal info";
+"Downloading schedule" = "Rooster downloaden";
+"Choose a classroom" = "kies een lokaal";
+"No internet connection" = "Geen Internetverbinding";
+"Please check if you're connected" = "Controleer of je bent verbonden met het internet";
+"Distance: ~%.2f meter" = "Afstand: ~%.2f meter";
+"You entered class room %@" = "Je betreedt lokaal %@";
+"You entered a class room" = "Je hebt een klaslokaal betreden";
