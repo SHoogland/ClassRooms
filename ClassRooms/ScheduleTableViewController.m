@@ -44,7 +44,7 @@
     NSLog(@"Viewloaded");
     self.title = @"Lokaal info";
     
-    self.loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,
+    self.loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.bounds.size.width / 4,
                                                                   0,
                                                                   self.tableView.bounds.size.width,
                                                                   20)];
@@ -53,7 +53,7 @@
     self.loadingLabel.center = self.tableView.center;
     
     self.loadingSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.loadingSpinner.frame = CGRectMake(self.tableView.bounds.size.width / 2 + 70,
+    self.loadingSpinner.frame = CGRectMake(self.tableView.bounds.size.width / 4 + 70,
                                            self.tableView.bounds.size.height / 2 - 10,
                                            20,
                                            20);
@@ -154,12 +154,17 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     // plaatje bovenaan de detailpagina
     if (section == 0) {
-        UIImageView *imageView;
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
         NSLog(@"%@", self.image);
         
+        UIImageView *imageView;
         UIImage *myImage = [UIImage imageNamed:@"school"];
         imageView= [[UIImageView alloc] initWithImage:myImage];
+        if(self.image != nil){
+            NSURL* url=[[NSURL alloc] initWithString:self.image];
+            [imageView setImageWithURL:url];
+        }
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
         UILabel *roomName = [[UILabel alloc] initWithFrame:CGRectMake(500, 20, imageView.bounds.size.width /2 , 30)];
         roomName.textColor = [UIColor whiteColor];
         roomName.textAlignment = NSTextAlignmentCenter;
